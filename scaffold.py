@@ -1,4 +1,6 @@
 import os
 
+year = "2015"
+
 for i in range(1,26):
-    os.mkdir("day-{0:02d}".format(i))
+    os.makedirs("advent-of-code-{}\\day-{:02d}".format(year, i))
