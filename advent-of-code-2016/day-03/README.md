@@ -1,0 +1,5 @@
+## Day-03 Notes
+
+- Made a really stupid error early on which cost me a lot of time and effort. I gave an empty space character as an argument without really thinking to `split(" ")`.  So I ended up spending time trying to remove bits of white space and empty strings, until I realised that split by default splits on any amount of congruent whitespace! I had been having to use split with specified separators for a while, and my brain just didn't engage.
+- The other tricky part was re-arranging the list of lists for Part Two. It could probably have been done simpler and faster using numpy, but I thought I would try it in pure python using list comprehensions.
+- I'm pretty sure to check whether a list of sides can make a triangle, you only need to check whether the two shorter sides are bigger than the largest, rather than all three cases.

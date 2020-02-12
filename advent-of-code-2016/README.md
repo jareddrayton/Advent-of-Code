@@ -3,8 +3,8 @@
 | Day  | Help P1 | Time P1  | Help P2 | Time P2  | Same Day Solve |
 | :--: | :-----: | :------: | :-----: | :------: | :------------: |
 |  1   |  None   | 00:40:55 |  None   | 01:35:23 |      N/A       |
-|  2   |         |          |         |          |      N/A       |
-|  3   |         |          |         |          |      N/A       |
+|  2   |  None   | 00:29:31 |  None   |          |      N/A       |
+|  3   |  None   | 00:29:31 |  None   | 01:20:24 |      N/A       |
 |  4   |         |          |         |          |      N/A       |
 |  5   |         |          |         |          |      N/A       |
 |  6   |         |          |         |          |      N/A       |
@@ -27,10 +27,3 @@
 |  23  |         |          |         |          |      N/A       |
 |  24  |         |          |         |          |      N/A       |
 |  25  |         |          |         |          |      N/A       |
-
-## Notes
-
-### Day-01
-
-Should have solved this a lot faster than I did. Although I was pretty burnt out after getting stuck on day-7 2015 and thought this would be a nice quick victory.
-
