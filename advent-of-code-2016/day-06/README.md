@@ -1,0 +1,2 @@
+Made a stupid mistake thinking I had to count the most frequent character in the rows, rather than the columns. Clearly read the question too fast.
+I was delayed in submitting my answer because I thought there was a bug. I was expecting a word to be decoded not a random string!
