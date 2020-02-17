@@ -1,14 +1,14 @@
-# Advent-of-Code 2016 Progress
+# Advent-of-Code 2017 Progress
 
 | Day  | Help P1 | Time P1  | Help P2 | Time P2  | Same Day Solve |
 | :--: | :-----: | :------: | :-----: | :------: | :------------: |
-|  1   |  None   | 00:40:55 |  None   | 01:35:23 |      N/A       |
-|  2   |  None   | 00:29:31 |  None   |    N/A   |      N/A       |
-|  3   |  None   | 00:29:31 |  None   | 01:20:24 |      N/A       |
-|  4   |  None   |   N/A    |  None   |    N/A   |      N/A       |
-|  5   |  None   | 00:09:09 |  None   | 00:27:38 |      N/A       |
-|  6   |  None   | 00:23:22 |  None   | 00:24:20 |      N/A       |
-|  7   |  None   | 00:35:45 |  None   | 00:50:39 |      N/A       |
+|  1   |  None   | 00:11:26 |  None   | 00:16:20 |      N/A       |
+|  2   |         |          |         |          |      N/A       |
+|  3   |         |          |         |          |      N/A       |
+|  4   |         |          |         |          |      N/A       |
+|  5   |         |          |         |          |      N/A       |
+|  6   |         |          |         |          |      N/A       |
+|  7   |         |          |         |          |      N/A       |
 |  8   |         |          |         |          |      N/A       |
 |  9   |         |          |         |          |      N/A       |
 |  10  |         |          |         |          |      N/A       |
