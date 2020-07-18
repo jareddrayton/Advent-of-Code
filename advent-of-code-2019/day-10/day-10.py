@@ -1,17 +1,12 @@
 import math
-import numpy as np
 from operator import itemgetter
+from itertools import cycle
 
 with open("day-10-input.txt", 'r') as f:
     asteroid_belt = f.readlines()
 
-# Convert input test to numpy array of booleans
 asteroid_belt = [list(asteroid.strip()) for asteroid in asteroid_belt]
-asteroid_belt = [[True if a == "#" else False for a in b] for b in asteroid_belt]
-asteroid_belt = np.array(asteroid_belt)
-
-# Create a list of indexes from the numpy array that represent asteroids 
-asteroids = list(zip(np.nonzero(asteroid_belt)[0], np.nonzero(asteroid_belt)[1]))
+asteroids = [(x, y) for y, row in enumerate(asteroid_belt) for x, col in enumerate(row) if col  == "#"]
 
 potential_stations = {}
 
@@ -21,16 +16,29 @@ for potential_station in asteroids:
         if asteroid != potential_station:
             sta_x_coord, sta_y_coord = potential_station
             ast_x_coord, ast_y_coord = asteroid
-
-            angle = math.degrees(math.atan2(sta_y_coord - ast_y_coord, ast_x_coord - sta_x_coord))
-            euc_distance = math.sqrt((ast_x_coord - sta_x_coord) ** 2 + (ast_y_coord - sta_y_coord) ** 2)
             
+            angle = math.degrees(math.atan2(ast_x_coord - sta_x_coord, sta_y_coord - ast_y_coord))
+            if angle < 0:
+                angle += 360
+            
+            euc_distance = math.sqrt((ast_x_coord - sta_x_coord) ** 2 + (ast_y_coord - sta_y_coord) ** 2)
+
             potential_stations[potential_station].append((angle, ast_x_coord, ast_y_coord, euc_distance))
 
 test = [(len(set([i[0] for i in v])), k) for k, v in potential_stations.items()]
 
-print("Part 1:", max([i[0] for i in test]))
-print("Part 2:")
+best = sorted(test)[-1][1]
 
-print(sorted(test)[-1])
-print(sorted(potential_stations[sorted(test)[-1][1]], key=itemgetter(0,3)))
+asteroids_ordered = []
+
+for asteroid in cycle(sorted(potential_stations[best], key=itemgetter(0, 3))):
+    if asteroids_ordered == []:
+        asteroids_ordered.append(asteroid)
+    elif asteroids_ordered[-1][0] != asteroid[0]:
+        asteroids_ordered.append(asteroid)
+    
+    if len(asteroids_ordered) == 200:
+        break
+
+print("Part 1:", max([i[0] for i in test]))
+print("Part 2:", asteroids_ordered[-1][1] * 100 + asteroids_ordered[-1][2])
