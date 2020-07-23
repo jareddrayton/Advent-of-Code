@@ -19,15 +19,15 @@ def calculate_angle(x_diff, y_diff):
 
 
 def station_positions(asteroids, potential_station):
-    x = []
+    relative_pos_data = []
     for asteroid in asteroids:
         if asteroid != potential_station:
             x_diff = asteroid[0] - potential_station[0]
             y_diff = potential_station[1] - asteroid[1]
             angle = calculate_angle(x_diff, y_diff)
             euc_distance = math.hypot(x_diff, y_diff)
-            x.append((angle, euc_distance, asteroid[0], asteroid[1]))
-    return x
+            relative_pos_data.append((angle, euc_distance, asteroid[0], asteroid[1]))
+    return relative_pos_data
 
 
 def build_stations_dict():
@@ -39,8 +39,11 @@ def build_stations_dict():
 
 
 def part_one(stations):
-    test = [(len(set([i[0] for i in v])), k) for k, v in stations.items()]
-    return sorted(test)[-1]
+    visibile_asteroids = []
+    for k, v in stations.items():
+        count = len(set([i[0] for i in v])), k
+        visibile_asteroids.append(count)
+    return sorted(visibile_asteroids)[-1]
 
 
 def part_two(stations):
