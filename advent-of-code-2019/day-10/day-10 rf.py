@@ -5,6 +5,10 @@ from itertools import cycle
 with open("day-10-input.txt", 'r') as f:
     asteroid_belt = f.readlines()
 
+
+def calculate_angle():
+    pass
+
 asteroids = [(x, y) for y, row in enumerate(asteroid_belt) 
                     for x, col in enumerate(list(row.strip())) if col  == "#"]
 
