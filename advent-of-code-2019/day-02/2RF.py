@@ -20,14 +20,7 @@ while intcode_program[index] != 99:
 
 print("Part A:", intcode_program[0])
 
-
-
-
-
 ###################################################################
-
-
-
 
 with open("2.txt", 'r') as f:
     modules = f.readline()
@@ -76,4 +69,4 @@ for n in range(noun + 1):
             print("Answer", 100 * n + v)
             break
 
-print("Part B:", id(modules))
+print("Part B:", modules)
