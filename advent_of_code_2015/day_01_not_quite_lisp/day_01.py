@@ -1,19 +1,31 @@
-with open("input.txt", 'r') as f:
-    directions = list(f.readline())
+from pathlib import Path
 
-print("Part One:", directions.count("(") - directions.count(")") )
 
-current_floor = 0
+def parse_input():
+    puzzle_input = Path(__file__).parent / "input.txt"
+    with open(puzzle_input, "r") as f:
+        directions = list(f.readline())
+    return directions
 
-###################################################################
 
-for i in range(len(directions)):
-    
-    if directions[i] == '(':
-        current_floor += 1
-    elif directions[i] == ')':
-        current_floor -= 1
-    
-    if current_floor == -1:
-        print("Part Two:", i+1)
-        break
+def part_1():
+    directions = parse_input()
+    return directions.count("(") - directions.count(")")
+
+
+def part_2():
+    directions = parse_input()
+    current_floor = 0
+    for i, direction in enumerate(directions, start=1):
+        if direction == "(":
+            current_floor += 1
+        elif direction == ")":
+            current_floor -= 1
+
+        if current_floor == -1:
+            return i
+
+
+if __name__ == "__main__":
+    print("Part One:", part_1())
+    print("Part Two:", part_2())
