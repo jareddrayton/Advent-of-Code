@@ -25,7 +25,6 @@ def multiply(a, b, m):
 # opcode 3
 # takes a single integer as input and saves it to the position given by its only parameter. 
 # For example, the instruction 3,50 would take an input value and store it at address 50.
-def 
 
 
 # opcode 4

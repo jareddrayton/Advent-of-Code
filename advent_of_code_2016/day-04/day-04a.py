@@ -11,14 +11,14 @@ for room in room_scrambled:
     encryp_name = "".join([char for char in room if char.isalpha()])
     room_parsed.append([encryp_name, hash_part, sector_id])
 
-def isreal(l):
+def isreal(room):
 
     template = "abcdefghijklmnopqrstuvwxyz"
 
     freq = []
 
     for c in template:
-        freq.append([c, l[0].count(c)])
+        freq.append([c, room[0].count(c)])
 
     check = []
 
@@ -28,8 +28,8 @@ def isreal(l):
 
     check = "".join([y for x in check for y in x][::2])
 
-    if check == l[1]:
-        return l[2]
+    if check == room[1]:
+        return room[2]
     else:
         return 0
 

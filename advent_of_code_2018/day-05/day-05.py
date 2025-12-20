@@ -3,7 +3,9 @@ import string
 with open("day-05-input.txt", 'r') as f:
     polymers = list(f.readline())
 
-patterns = [[u,l] for u,l in zip(string.ascii_lowercase, string.ascii_uppercase)] + [[l,u ] for u,l in zip(string.ascii_lowercase, string.ascii_uppercase)]
+alphabet = list(zip(string.ascii_lowercase, string.ascii_uppercase))
+
+patterns = [[upper, lower] for upper, lower in alphabet] + [[lower, upper] for upper, lower in alphabet]
 
 polymers1, polymers2 = polymers.copy(), polymers.copy()
 
@@ -23,10 +25,10 @@ print("Part One:", len(react(polymers1)))
 
 shortest = []
 
-for l,u in zip(string.ascii_lowercase, string.ascii_uppercase):
+for lower_case, upper_case in zip(string.ascii_lowercase, string.ascii_uppercase):
     new = []
     for abc in polymers2:
-        if abc != l and abc != u:
+        if abc != lower_case and abc != upper_case:
             new.append(abc)
     shortest.append(len(react(new)))
 

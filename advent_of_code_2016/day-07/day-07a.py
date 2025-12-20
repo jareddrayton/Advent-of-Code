@@ -27,7 +27,7 @@ for address in addresses:
 total = 0
 
 for table in tables:
-    if any(table[1::2]) == False and any(table[0::2]):
+    if not any(table[1::2]) and any(table[0::2]):
         total += 1
 
 print("Part One:", total)

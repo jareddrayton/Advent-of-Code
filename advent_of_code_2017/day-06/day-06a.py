@@ -1,4 +1,3 @@
-import itertools
 
 with open("day-06-input.txt", 'r') as f:
     memorybanks = f.readline().split()

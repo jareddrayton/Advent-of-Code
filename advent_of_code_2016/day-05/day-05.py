@@ -40,7 +40,7 @@ def numberb(prefix="00000"):
         test = test.hexdigest()
 
         if test[:len(prefix)] == prefix:
-            if test[5].isdigit() and int(test[5]) < 8 and password[int(test[5])] == None:
+            if test[5].isdigit() and int(test[5]) < 8 and password[int(test[5])] is None:
                 password[int(test[5])] = test[6]
                 passa += 1
 

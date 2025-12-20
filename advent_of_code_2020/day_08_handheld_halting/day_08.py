@@ -1,5 +1,4 @@
 import copy
-from operator import itemgetter
 
 with open ("input.txt", 'r') as f:
     code = f.readlines()
@@ -46,7 +45,7 @@ def find_termintating_loop(code):
 
         result = find_infinite_loop(new, 4)
 
-        if result[1] == False:
+        if result[1] is False:
             return result
 
 format_code = format(code)

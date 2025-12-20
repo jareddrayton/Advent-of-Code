@@ -1,4 +1,3 @@
-import itertools
 
 with open("day-12-input-example.txt", 'r') as f:
     coords = f.readlines()
@@ -63,7 +62,7 @@ class Moon:
 def parse_input(coords): 
     for coord, moon in zip(coords, moon_names):
         coord = coord.strip().split(',')
-        moons[moon] = Moon([int("".join([b for b in a if b.isdigit() == True or b == "-"])) for a in coord], moon )
+        moons[moon] = Moon([int("".join([b for b in a if b.isdigit() or b == "-"])) for a in coord], moon )
 
 parse_input(coords)
 
@@ -77,12 +76,5 @@ for i in range(steps):
         moons[moon].apply_velocity()
         moons[moon].calculate_energy()
         print(moons[moon].position)
-        sprint()
-    
-    #for moon in moons.keys():
-    ##    print(moons[moon].position, moons[moon].name)
-    
+
     print(sum(moons[moon].total_energy for moon in moons.keys()))
-
-
-

@@ -9,7 +9,7 @@ for room in room_scrambled:
     room, hash_part = room.strip().split('[')
     hash_part = hash_part.strip(']')
     sector_id = int("".join([char for char in room if char.isdigit()]))
-    encryp_name = "".join([char for char in room if char.isdigit() == False])
+    encryp_name = "".join([char for char in room if not char.isdigit()])
     room_parsed.append([encryp_name, hash_part, sector_id])
 
 def cipher(cipherd_text, offset):
@@ -23,7 +23,7 @@ def cipher(cipherd_text, offset):
     trans = ""
 
     for letter in cipherd_text:
-        if letter.isalpha() == True:
+        if letter.isalpha():
             trans += (alphabet_string[cipher[alphabet_string.rindex(letter)]])
         else:
             trans += " "

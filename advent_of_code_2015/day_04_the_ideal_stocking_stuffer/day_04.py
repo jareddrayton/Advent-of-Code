@@ -6,7 +6,7 @@ def number(prefix="00000"):
 
     answer = False
 
-    while answer == False:
+    while not answer:
         
         puzzle_input = "iwrupvqb" + str(index)
         test = hashlib.md5(puzzle_input.encode())
