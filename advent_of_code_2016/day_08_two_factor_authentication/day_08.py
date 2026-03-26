@@ -1,7 +1,7 @@
 import numpy as np
 from pathlib import Path
 
-np.set_printoptions(suppress=True, linewidth=np.nan)
+np.set_printoptions(suppress=True, linewidth=200)
 puzzle_input = Path(__file__).parent / "input.txt"
 with open(puzzle_input, "r") as fh:
     instructions = fh.readlines()
@@ -9,7 +9,7 @@ with open(puzzle_input, "r") as fh:
 A = 50
 B = 6
 
-screen = np.zeros((B, A))
+screen = np.zeros((B, A), dtype=int)
 
 for instruction in instructions:
     instruction = instruction.strip().split()
