@@ -30,13 +30,13 @@ def check_no_overlap(string):
     if not string:
         return [True]
     regex = re.compile(r"\(\d+x\d+\)")
-    match = regex.search(string)
-    length, _ = to_int(match)
-    new_str = string[match.span()[1] : match.span()[1] + length]
-    if regex.search(new_str):
-        return [False]
-    else:
-        return [True] + check_no_overlap(string[match.span()[1] + length :])
+    if match := regex.search(string):
+        length, _ = to_int(match)
+        new_str = string[match.span()[1] : match.span()[1] + length]
+        if regex.search(new_str):
+            return [False]
+        else:
+            return [True] + check_no_overlap(string[match.span()[1] + length :])
 
 
 def part_2(string):
