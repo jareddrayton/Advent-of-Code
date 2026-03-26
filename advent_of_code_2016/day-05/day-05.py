@@ -1,52 +1,38 @@
-import hashlib
+from hashlib import md5
 
 puzzle_input = "wtnhxymk"
 
-def number(prefix="00000"):
 
+def part_1(prefix="00000"):
     index = 0
-
     password = ""
 
     while len(password) < 8:
+        candidate = puzzle_input + str(index)
+        hash = md5(candidate.encode()).hexdigest()
 
-        b = puzzle_input + str(index)
-        test = hashlib.md5(b.encode())
-        test = test.hexdigest()
-
-        if test[:len(prefix)] == prefix:
-            
-            password += test[5]
-
-        if len(password) == 8:
-            return password
-
+        if hash.startswith(prefix):
+            password += hash[5]
         index += 1
 
-print("Part One:", number())
+    return password
 
-def numberb(prefix="00000"):
 
+def part_2(prefix="00000"):
     index = 0
+    password = ["", "", "", "", "", "", "", ""]
 
-    password = [None, None, None, None, None, None, None, None]
+    while not all(password):
+        candidate = puzzle_input + str(index)
+        hash = md5(candidate.encode()).hexdigest()
 
-    passa = 0
-
-    while passa < 8:
-
-        b = puzzle_input + str(index)
-        test = hashlib.md5(b.encode())
-        test = test.hexdigest()
-
-        if test[:len(prefix)] == prefix:
-            if test[5].isdigit() and int(test[5]) < 8 and password[int(test[5])] is None:
-                password[int(test[5])] = test[6]
-                passa += 1
-
-        if passa == 8:
-            return "".join(password)
-
+        if hash.startswith(prefix):
+            if hash[5].isdigit() and int(hash[5]) < 8 and not password[int(hash[5])]:
+                password[int(hash[5])] = hash[6]
         index += 1
 
-print("Part Two:", numberb())
+    return "".join(password)
+
+
+print("Part One:", part_1())
+print("Part Two:", part_2())
